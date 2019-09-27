@@ -24,5 +24,58 @@ namespace Raton_y_Teclado
         {
             InitializeComponent();
         }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RectanguloIzquierdo.Fill = new SolidColorBrush(Colors.Green);
+        }
+
+        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            RectanguloIzquierdo.Fill = new SolidColorBrush(Colors.White);
+        }
+
+        private void Grid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RectanguloDerecho.Fill = new SolidColorBrush(Colors.Green);
+        }
+
+        private void Grid_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            RectanguloDerecho.Fill = new SolidColorBrush(Colors.White);
+        }
+
+        private void TextBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+                textBox2.Text = "Ayuda";
+        }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox_foco.Text = ((TextBox)sender).Name;
+        }
+
+        private void TextBox_ratonSobre_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TextBox_ratonSobre.Text = ((TextBox)sender).Name;
+        }
+
+        private void TextBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            TextBox_ratonSobre.Text = "";
+        }
+
+
+        private void TextBox1_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            textBox1.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void TextBox3_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            
+                
+        }
     }
 }

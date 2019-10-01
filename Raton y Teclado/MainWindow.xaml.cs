@@ -25,22 +25,22 @@ namespace Raton_y_Teclado
             InitializeComponent();
         }
 
-        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             RectanguloIzquierdo.Fill = new SolidColorBrush(Colors.Green);
         }
 
-        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             RectanguloIzquierdo.Fill = new SolidColorBrush(Colors.White);
         }
 
-        private void Grid_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             RectanguloDerecho.Fill = new SolidColorBrush(Colors.Green);
         }
 
-        private void Grid_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void Window_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             RectanguloDerecho.Fill = new SolidColorBrush(Colors.White);
         }
@@ -67,15 +67,22 @@ namespace Raton_y_Teclado
         }
 
 
-        private void TextBox1_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             textBox1.CharacterCasing = CharacterCasing.Upper;
         }
 
-        private void TextBox3_TextInput(object sender, TextCompositionEventArgs e)
+        private void TextBox3_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
-                
+            TextBox tb = (TextBox)sender;
+            char[] vocales = "aeiouAEIOU".ToCharArray();
+            StringBuilder textoSinVocales = new StringBuilder(tb.Text);
+            for (int i = 0; i < tb.Text.Length; i++)
+            {
+                if (!vocales.Contains(tb.Text[i]))
+                    textoSinVocales.Append(tb.Text[i]);
+
+            }
         }
     }
 }
